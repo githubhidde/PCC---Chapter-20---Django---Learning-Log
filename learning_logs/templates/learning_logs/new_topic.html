@@ -1,12 +1,30 @@
 {% extends "learning_logs/base.html" %}
 
+{% block page_header %}
+  <h3>Add a new topic</h3>
+{% endblock page_header %}
+
 {% block content %}
-  <p>Add a new topic:</p>
-    
+
+<style> 
+    .button {
+    color: #fff;
+    background-color: #eb6864;
+*/	border: 1px solid transparent;*/
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+  .button { font-weight: initial;
+  }
+</style>
+
   <form action="{% url 'learning_logs:new_topic' %}" method='post'>
     {% csrf_token %}
     {{ form.as_p }}
-    <button name="submit">Add topic</button>
+    <button class="button" name="submit">Add topic</button>
   </form>
-    
+
 {% endblock content %}

@@ -2,14 +2,29 @@
 
 {% block content %}
 
-  <p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
-    
-  <p>Edit entry:</p>
-    
-  <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'>
+<style> 
+    .button {
+    color: #fff;
+    background-color: #eb6864;
+*/	border: 1px solid transparent;*/
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+  .button { font-weight: initial;
+  }
+</style>
+
+  <p><a href="{ url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
+
+  <h3><p>Edit entry:</p></h3>
+
+  <form action="{% url 'learning_logs:edit_entry' entry.id %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button name="submit">Save changes</button>
+    <button class="button" name='submit'>Save changes</button>
   </form>
 
 {% endblock content %}

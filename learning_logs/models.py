@@ -21,4 +21,9 @@ class Entry(models.Model):
  
     def __str__(self):
         """Return a string representation of the model."""
-        return f"{self.text[:50]}..."
+        # Add an ellipsis ONLY if the entry,
+        # is more than 50 characters long.
+        if self.text > self.text[:50]:
+            return self.text[:50] + "..."
+        elif self.text <= self.text[:50]:
+            return self.text[:50]

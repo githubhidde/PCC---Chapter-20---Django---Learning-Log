@@ -20,7 +20,6 @@
   .button { font-weight: initial;
   }
 </style>
-
   <form action="{% url 'learning_logs:new_topic' %}" method='post'>
     {% csrf_token %}
     {{ form.as_p }}
